@@ -1,7 +1,0 @@
-[
-  "tests/test_log_upload.py::test_ai_detection_severity",
-  "tests/test_log_upload.py::test_five_dummy_logs_detected",
-  "tests/test_log_upload.py::test_upload_endpoint_exists",
-  "tests/test_log_upload.py::test_upload_json_log",
-  "tests/test_log_upload.py::test_upload_returns_results"
-]
