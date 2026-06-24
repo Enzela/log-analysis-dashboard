@@ -1,14 +1,11 @@
 name: Run Pytest
-
 on:
   push:
     branches:
       - main
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     services:
       postgres:
         image: postgres:15
@@ -23,26 +20,22 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-
       - name: Install dependencies
         run: |
           pip install fastapi uvicorn sqlalchemy psycopg2-binary python-multipart scikit-learn numpy pandas pytest httpx2 python-jose passlib bcrypt
-
-      - name: Find and run pytest
+      - name: Run pytest
         run: |
-          find . -name "test_log_upload.py" -type f
-          cd $(find . -name "test_log_upload.py" -type f | xargs dirname | head -1)
-          cd ..
+          TEST_FILE=$(find . -name "test_log_upload.py" -type f | head -1)
+          BACKEND_DIR=$(dirname $(dirname $TEST_FILE))
+          cd $BACKEND_DIR
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
           pytest tests/test_log_upload.py -v
         env:
           DATABASE_URL: postgresql://postgres:cannizzaro@localhost:5432/log_analysis_db
-      
