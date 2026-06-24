@@ -1,0 +1,7 @@
+[
+  {"timestamp": "2026-06-20 10:15:23", "ip": "192.168.1.10", "event": "login_success", "message": "User logged in"},
+  {"timestamp": "2026-06-20 11:20:45", "ip": "192.168.1.25", "event": "login_failed", "message": "Invalid password attempt"},
+  {"timestamp": "2026-06-20 12:05:11", "ip": "10.0.0.5", "event": "port_scan", "message": "Multiple ports scanned"},
+  {"timestamp": "2026-06-20 13:30:02", "ip": "203.0.113.7", "event": "file_access", "message": "Unauthorized file access"},
+  {"timestamp": "2026-06-20 14:45:33", "ip": "192.168.1.50", "event": "brute_force", "message": "Multiple failed login attempts"}
+]
