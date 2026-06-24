@@ -37,10 +37,12 @@ jobs:
         run: |
           pip install fastapi uvicorn sqlalchemy psycopg2-binary python-multipart scikit-learn numpy pandas pytest httpx2 python-jose passlib bcrypt
 
-      
-      - name: Run pytest
+      - name: Find and run pytest
         run: |
-          cd OneDrive/Desktop/log-analysis-dashboard/backend
+          find . -name "test_log_upload.py" -type f
+          cd $(find . -name "test_log_upload.py" -type f | xargs dirname | head -1)
+          cd ..
           pytest tests/test_log_upload.py -v
         env:
           DATABASE_URL: postgresql://postgres:cannizzaro@localhost:5432/log_analysis_db
+      
