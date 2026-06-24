@@ -1,0 +1,3 @@
+{
+  "tests/test_log_upload.py::TestClient": true
+}
