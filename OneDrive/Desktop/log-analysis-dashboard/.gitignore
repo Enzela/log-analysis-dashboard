@@ -13,5 +13,10 @@ dist/
 .DS_Store
 Thumbs.db
 
+# Ignore everything outside project
+../
+../../
+../../../
+
 # Database
 *.sqlite3
